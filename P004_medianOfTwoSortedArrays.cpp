@@ -13,7 +13,7 @@ public:
         }
         while(i < nums1.size()) nums3.push_back(nums1[i++]);
         while(j < nums2.size()) nums3.push_back(nums2[j++]);
-        if(nums3.size() % 2 == 0) return (nums3[nums3.size() / 2 - 1] + nums3[nums3.size() / 2]) / double(2.0);
+        if(nums3.size() % 2 == 0) return (nums3[nums3.size() / 2 - 1] + nums3[nums3.size() / 2]) / 2.0;
         else return (double)nums3[nums3.size() / 2];
     }
 };
