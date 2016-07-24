@@ -3,11 +3,11 @@
 class Solution1 {
 public:
     int lengthOfLongestSubstring(string s) {
-        unordered_map<char, int> hash_table;
+        unordered_set<char> hash_table;
         int low = 0, high = 0, len = 0;
         while(low < s.length() && high < s.length()) {
             if(hash_table.find(s[high]) == hash_table.end()) {
-                hash_table[s[high]] = high;
+                hash_table.insert(s[high]);
                 ++high;
                 len = max(len, high - low);
             }
