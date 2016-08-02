@@ -32,3 +32,26 @@ public:
         return res;
     }
 };
+
+// simple solution 
+class Solution2 {
+public:
+    int myAtoi(string str) {
+        int sgn = 1, i = 0, base = 0;
+        while(i < str.length() && str[i] == ' ') {
+            i++;
+        }
+        if(i < str.length() && (str[i] == '-' || str[i] == '+')) {
+            sgn = 1 - 2 * (str[i++] == '-');
+        }
+        while(i < str.length() && str[i] <= '9' && str[i] >= '0') {
+            if(INT_MAX / 10 < base || (INT_MAX / 10 == base && str[i] > '7')) {
+                if(sgn == 1) return INT_MAX;
+                else return INT_MIN;
+            }
+            base = base * 10 + (str[i++] - '0');
+
+        }
+        return base * sgn;
+    }
+};
